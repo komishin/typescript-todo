@@ -1,0 +1,18 @@
+# Ignore artifacts:
+# 依存関係
+node_modules/
+package-lock.json
+
+# ビルド成果物・キャッシュ
+dist/
+build/
+coverage/
+.next/
+.cache/
+
+# Git関連
+.husky/
+.git/
+
+# その他（Prettierで整形する必要がないもの）
+*.log
