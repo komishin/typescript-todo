@@ -1,11 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typescriptの練習</title>
-</head>
-<body>
-    <h1>TypeScriptの練習</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypescriptのTODOアプリ</title>
+  </head>
+  <body>
+    <main>
+      <h1>TypeScriptのTODOアプリ</h1>
+      <section>
+        <h2>新規作成</h2>
+        <div class="new-todo">
+          <div>
+            <label for="new-todo-name">TODO名</label>
+            <input
+              class="new-todo_list"
+              type="text"
+              id="new-todo-name"
+              placeholder="TODOを入力"
+            />
+            <span id="name-error" class="error-msg" style="display: none"
+              >※入力してください</span
+            >
+          </div>
+          <div>
+            <label for="new-person">担当者</label>
+            <input
+              class="new-todo_list"
+              type="text"
+              id="new-person"
+              placeholder="担当者を入力"
+            />
+            <span id="person-error" class="error-msg" style="display: none"
+              >※入力してください</span
+            >
+          </div>
+          <div>
+            <label for="new-deadline">期限</label>
+            <input class="new-todo_list" type="date" id="new-deadline" />
+            <span id="deadline-error" class="error-msg" style="display: none"
+              >※入力してください</span
+            >
+          </div>
+          <div><button type="button" id="register">登録</button></div>
+        </div>
+      </section>
+      <section>
+        <h2>TODO一覧</h2>
+        <div class="filter">
+          <label for="todo-filter">絞り込み</label>
+          <input type="text" id="todo-filter" placeholder="絞り込み" />
+        </div>
+        <table class="todo-list" aria-label="TODO一覧">
+          <thead>
+            <tr>
+              <th>TODO名</th>
+              <th>担当者</th>
+              <th>期限</th>
+              <!-- <th>操作</th> -->
+            </tr>
+          </thead>
+          <tbody id="todo-list" aria-busy="true"></tbody>
+        </table>
+      </section>
+    </main>
+  </body>
 </html>
