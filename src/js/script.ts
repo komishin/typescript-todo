@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('HELLO')
   const registerButton = getElementById('register')
   registerButton.addEventListener('click', () => {
-    //新しいTODOをDOMから取得する
-    todoList.push(getNewTodo())
-    console.log(todoList)
+    //新しいTODOをDOM空取得して、todoListに追加する
+    todoList = [...todoList, getNewTodo()]
     //TODO一覧を表示する
     removeTodoListElement()
 
