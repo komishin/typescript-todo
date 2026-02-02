@@ -27,7 +27,6 @@ export const getNewTodo = (): Todo => ({
  */
 
 export const appendTodoList = (todoList: Todo[]) => {
-  removeTodoListElement()
   todoList.forEach((todo) => {
     const nameTd = createElement('td', todo.name)
     const personTd = createElement('td', todo.person)
@@ -44,7 +43,7 @@ export const appendTodoList = (todoList: Todo[]) => {
 /**
  * DOM一覧をすべて削除する
  */
-const removeTodoListElement = () => {
+export const removeTodoListElement = () => {
   const tBody = getElementById('todo-list')
   while (tBody.firstChild) {
     //tBodyがなくなるまで
