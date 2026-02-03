@@ -1,0 +1,30 @@
+.new-todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.new-todo_list {
+  margin-left: 10px;
+}
+
+.todo-list {
+  //隣り合う行をくっつける
+  border-collapse: collapse;
+
+  thead {
+    background-color: rgb(179, 179, 179);
+  }
+
+  th,
+  td {
+    width: 150px;
+    border: 1px solid;
+    padding: 10px;
+  }
+}
+
+.filter {
+  margin: 10px 0;
+}
