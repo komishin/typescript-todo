@@ -5,6 +5,7 @@
 import { createElement, getElementById, getInputElementById } from './dom'
 
 export type Todo = {
+  id: number
   name: string
   person: string
   deadline: string
@@ -17,6 +18,7 @@ export type Todo = {
 
 export const getNewTodo = (): Todo => ({
   //returnを使わないで書いている方法（）が決め手
+  id: Date.now(),
   name: getInputElementById('new-todo-name').value,
   person: getInputElementById('new-person').value,
   deadline: getInputElementById('new-deadline').value,
@@ -34,6 +36,14 @@ export const appendTodoList = (todoList: Todo[]) => {
 
     //削除ボタン
     const deleteButton = createElement('button', '削除')
+    deleteButton.addEventListener("click", () => {
+      //todoのidが一致しないものを新たな表にtodoListに入れる（一致した行はなくなる）
+      todoList = todoList.filter(_todo => _todo.id !== todo.id)
+      //一度もとの表を消す
+      removeTodoListElement()
+      //行を削除した後の表を再構築する
+      appendTodoList(todoList)
+    })
     const deleteButtonTd = createElement("td")
     deleteButtonTd.appendChild(deleteButton)
 
