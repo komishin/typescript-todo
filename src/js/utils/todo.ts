@@ -31,10 +31,18 @@ export const appendTodoList = (todoList: Todo[]) => {
     const nameTd = createElement('td', todo.name)
     const personTd = createElement('td', todo.person)
     const deadlineTd = createElement('td', todo.deadline)
+
+    //削除ボタン
+    const deleteButton = createElement('button', '削除')
+    const deleteButtonTd = createElement("td")
+    deleteButtonTd.appendChild(deleteButton)
+
     const tr = createElement('tr')
     tr.appendChild(nameTd)
     tr.appendChild(personTd)
     tr.appendChild(deadlineTd)
+    tr.appendChild(deleteButtonTd)
+
     const tBody = getElementById('todo-list')
     tBody.appendChild(tr)
   })
