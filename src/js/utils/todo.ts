@@ -28,23 +28,32 @@ export const getNewTodo = (): Todo => ({
  * DOMにTODO一愛rンを表示する
  */
 
-export const appendTodoList = (todoList: Todo[]) => {
-  todoList.forEach((todo) => {
+export const appendTodoList = (
+  _todoList: Todo[],
+  deleteTodo: (id: number) => void
+) => {
+  _todoList.forEach((todo) => {
     const nameTd = createElement('td', todo.name)
     const personTd = createElement('td', todo.person)
     const deadlineTd = createElement('td', todo.deadline)
 
     //削除ボタン
     const deleteButton = createElement('button', '削除')
-    deleteButton.addEventListener("click", () => {
-      //todoのidが一致しないものを新たな表にtodoListに入れる（一致した行はなくなる）
-      todoList = todoList.filter(_todo => _todo.id !== todo.id)
-      //一度もとの表を消す
-      removeTodoListElement()
-      //行を削除した後の表を再構築する
-      appendTodoList(todoList)
-    })
-    const deleteButtonTd = createElement("td")
+    //                                   ここがコールバック関数
+    //                                     ↓
+    deleteButton.addEventListener('click', () => deleteTodo(todo.id))
+
+    //以下は変数が見えないバグが出るコード
+
+    // deleteButton.addEventListener("click", () => {
+    //   //todoのidが一致しないものを新たな表にtodoListに入れる（一致した行はなくなる）
+    //   _todoList = _todoList.filter(_todo => _todo.id !== todo.id)
+    //   //一度もとの表を消す
+    //   removeTodoListElement()
+    //   //行を削除した後の表を再構築する
+    //   appendTodoList(_todoList)
+    // })
+    const deleteButtonTd = createElement('td')
     deleteButtonTd.appendChild(deleteButton)
 
     const tr = createElement('tr')

@@ -18,6 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
     //TODO一覧を表示する
     removeTodoListElement()
 
-    appendTodoList(todoList)
+    appendTodoList(todoList, deleteTodo)
   })
 })
+
+/**
+ *TODOを削除する
+ *この処理は、このfileでしかできない
+ *スコープのため、ここでしかtodoListの変数が見えない
+ * @param id
+ */
+const deleteTodo = (id: number) => {
+  todoList = todoList.filter((todo) => todo.id !== id)
+  removeTodoListElement()
+
+  appendTodoList(todoList, deleteTodo)
+}
