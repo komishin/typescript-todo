@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { getElementById } from './utils/dom'
+import { getElementById, getInputElementById } from './utils/dom'
 import {
   appendTodoList,
   getNewTodo,
@@ -8,9 +8,10 @@ import {
 } from './utils/todo'
 
 let todoList: Todo[] = []
+let filterWord: string = ""
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('HELLO')
+  //登録ボタン押下時の処理
   const registerButton = getElementById('register')
   registerButton.addEventListener('click', () => {
     //新しいTODOをDOM空取得して、todoListに追加する
@@ -18,7 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     //TODO一覧を表示する
     removeTodoListElement()
 
-    appendTodoList(todoList, deleteTodo)
+    appendTodoList(todoList, filterWord, deleteTodo)
+  })
+
+  //絞り込み入力時の処理
+  const filterInput = getInputElementById('todo-filter')
+  filterInput.addEventListener('input', () => {
+    filterWord = filterInput.value
+        //TODO一覧を表示する
+    removeTodoListElement()
+
+    appendTodoList(todoList, filterWord, deleteTodo)
   })
 })
 
@@ -32,5 +43,5 @@ const deleteTodo = (id: number) => {
   todoList = todoList.filter((todo) => todo.id !== id)
   removeTodoListElement()
 
-  appendTodoList(todoList, deleteTodo)
+  appendTodoList(todoList, filterWord, deleteTodo)
 }

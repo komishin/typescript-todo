@@ -30,9 +30,16 @@ export const getNewTodo = (): Todo => ({
 
 export const appendTodoList = (
   _todoList: Todo[],
+  _filterWord:string,
   deleteTodo: (id: number) => void
 ) => {
-  _todoList.forEach((todo) => {
+  _todoList
+  .filter(
+      (todo) =>
+        todo.name.includes(_filterWord) ||
+        todo.person.includes(_filterWord),
+    )
+  .forEach((todo) => {
     const nameTd = createElement('td', todo.name)
     const personTd = createElement('td', todo.person)
     const deadlineTd = createElement('td', todo.deadline)
