@@ -25,7 +25,7 @@ export const getNewTodo = (): Todo => ({
 })
 
 /**
- * DOMにTODO一愛rンを表示する
+ * DOMにTODO一覧を表示する
  */
 
 export const appendTodoList = (
@@ -84,3 +84,34 @@ export const removeTodoListElement = () => {
     tBody.firstChild.remove()
   }
 }
+
+/**
+ * ソートメニューの開閉機能
+ * 画面内の全ての `.sort-trigger` ボタンを対象にクリックイベントを設定し、
+ * 隣接するメニューの表示/非表示を切り替えます。
+ * 他のメニューが開いている場合は、それを閉じてから対象のメニューを開きます。
+ * * @example
+ * // 他のファイルで呼び出す場合
+ * initSortMenu();
+ * * @returns {void} 返り値はありません
+ */
+export const initSortMenu = (): void => {
+  document.querySelectorAll<HTMLButtonElement>('.sort-trigger').forEach((btn) => {
+    btn.addEventListener('click', (e: Event) => {
+      e.stopPropagation();
+
+      //もし、HTMLで次の要素になければ何もしない（null防止）
+      const menu = btn.nextElementSibling as HTMLElement | null;
+      if (!menu) return;
+
+      //周りの開いているメニューを閉じる指示
+      document.querySelectorAll<HTMLElement>('.sort-menu-curtain.is-open').forEach((m) => {
+        if (m !== menu) {
+          m.classList.remove('is-open');
+        }
+      });
+
+      menu.classList.toggle('is-open');
+    });
+  });
+};

@@ -3,6 +3,7 @@ import { getElementById, getInputElementById } from './utils/dom'
 import {
   appendTodoList,
   getNewTodo,
+  initSortMenu,
   removeTodoListElement,
   Todo,
 } from './utils/todo'
@@ -31,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     appendTodoList(todoList, filterWord, deleteTodo)
   })
+
+  initSortMenu();
 })
 
 /**
