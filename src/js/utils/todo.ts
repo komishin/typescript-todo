@@ -115,3 +115,16 @@ export const initSortMenu = (): void => {
     });
   });
 };
+
+/**
+ * 画面のどこかをクリックしたときに、開いているメニューをすべて閉じます。
+ */
+export const initOutsideClickCloser = (): void => {
+  document.addEventListener('click', () => {
+    document
+      .querySelectorAll<HTMLElement>('.menu-curtain.is-open, .sort-menu-curtain.is-open')
+      .forEach((c) => {
+        c.classList.remove('is-open');
+      });
+  });
+};
