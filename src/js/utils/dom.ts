@@ -22,7 +22,7 @@ export const getInputElementById = (id: string): HTMLInputElement => {
 }
 
 /**
- *引数に受け取った無前のDOM要素を生成する
+ *引数に受け取った手前のDOM要素を生成する
  * @param elementName 要素名
  * @param textContent 要素のテキストコンテント
  * @returns HTMLElement

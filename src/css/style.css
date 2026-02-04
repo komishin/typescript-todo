@@ -99,3 +99,42 @@
 .sort-menu-curtain button:hover {
   background-color: #f0f0f0;
 }
+
+.todo-menu-container {
+  position: relative;
+  display: inline-block;
+}
+.todo-menu-container .menu-curtain {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 120px;
+}
+.todo-menu-container .menu-curtain.is-open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.todo-menu-container .menu-item {
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+.todo-menu-container .menu-item:hover {
+  background-color: #f0f0f0;
+}
+.todo-menu-container .menu-item--delete {
+  color: red;
+}
