@@ -1,15 +1,8 @@
 @charset "UTF-8";
 .new-todo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
   gap: 20px;
 }
 
@@ -35,13 +28,8 @@
 }
 
 .task-board {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   gap: 50px;
 }
 
@@ -57,15 +45,9 @@
 }
 .sort-header .sort-header-inner {
   /* ここで横並びのルールを決めます */
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; /* 文字とボタンを両端に */
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; /* 上下の真ん中に揃える */
+  justify-content: center; /* 文字とボタンを両端に */
+  align-items: center; /* 上下の真ん中に揃える */
   width: 100%;
   gap: 5px; /* 少し隙間を空ける */
 }
@@ -75,19 +57,13 @@
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 100;
   min-width: 120px;
 }
 .sort-menu-curtain.is-open {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .sort-menu-curtain button {
   padding: 8px;

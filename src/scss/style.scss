@@ -28,3 +28,59 @@
 .filter {
   margin: 10px 0;
 }
+
+.task-board {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.remove-button {
+  font-size: 10px;
+}
+
+/* ソートメニューのスタイル */
+.sort-header {
+  /* th 自体はテーブルのセルのままにする（これでズレが直ります！） */
+  padding: 8px; // 他の th と同じ余白に設定してください
+  vertical-align: middle;
+
+  .sort-header-inner {
+    /* ここで横並びのルールを決めます */
+    display: flex;
+    justify-content: center; /* 文字とボタンを両端に */
+    align-items: center; /* 上下の真ん中に揃える */
+    width: 100%;
+    gap: 5px; /* 少し隙間を空ける */
+  }
+}
+
+.sort-menu-curtain {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  min-width: 120px;
+
+  // is-open クラスがついた時（&は親のクラス名を指します）
+  &.is-open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // メニュー内のボタン
+  button {
+    padding: 8px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+
+    // ホバーした時
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}

@@ -45,24 +45,163 @@
           <div><button type="button" id="register">登録</button></div>
         </div>
       </section>
-      <section>
-        <h2>TODO一覧</h2>
-        <div class="filter">
-          <label for="todo-filter">絞り込み</label>
-          <input type="text" id="todo-filter" placeholder="絞り込み" />
-        </div>
-        <table class="todo-list" aria-label="TODO一覧">
-          <thead>
-            <tr>
-              <th>TODO名</th>
-              <th>担当者</th>
-              <th>期限</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody id="todo-list" aria-busy="true"></tbody>
-        </table>
-      </section>
+      <div class="task-board">
+        <section>
+          <h2>TODO一覧</h2>
+          <div class="filter">
+            <label for="todo-filter">絞り込み</label>
+            <input type="text" id="todo-filter" placeholder="絞り込み" />
+          </div>
+          <table class="todo-list" aria-label="TODO一覧">
+            <thead>
+              <tr>
+                <th class="js-sort-column" data-key="todoName">TODO名</th>
+                <th class="js-sort-column" data-key="person">担当者</th>
+                <th class="sort-header">
+                  <div class="sort-header-inner">
+                    <span>期限</span>
+                    <div class="sort-menu-container">
+                      <button type="button" class="sort-trigger">▼</button>
+                      <div class="sort-menu-curtain">
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="deadline"
+                          data-order="asc"
+                        >
+                          昇順（早い順）
+                        </button>
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="deadline"
+                          data-order="desc"
+                        >
+                          降順（遅い順）
+                        </button>
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="id"
+                          data-order="asc"
+                        >
+                          戻す（入力順）
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="todo-list" aria-busy="true"></tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>DOING一覧</h2>
+          <div class="filter">
+            <label for="doing-filter">絞り込み</label>
+            <input type="text" id="doing-filter" placeholder="絞り込み" />
+          </div>
+          <table class="todo-list" aria-label="TODO一覧">
+            <thead>
+              <tr>
+                <th class="js-sort-column" data-key="todoName">TODO名</th>
+                <th class="js-sort-column" data-key="person">担当者</th>
+                <th class="sort-header">
+                  <div class="sort-header-inner">
+                    <span>期限</span>
+                    <div class="sort-menu-container">
+                      <button type="button" class="sort-trigger">▼</button>
+                      <div class="sort-menu-curtain">
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="deadline"
+                          data-order="asc"
+                        >
+                          昇順（早い順）
+                        </button>
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="deadline"
+                          data-order="desc"
+                        >
+                          降順（遅い順）
+                        </button>
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="id"
+                          data-order="asc"
+                        >
+                          戻す（入力順）
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="doing-list" aria-busy="true"></tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>DONE一覧</h2>
+          <div class="filter">
+            <label for="done-filter">絞り込み</label>
+            <input type="text" id="done-filter" placeholder="絞り込み" />
+          </div>
+          <table class="todo-list" aria-label="TODO一覧">
+            <thead>
+              <tr>
+                <th class="js-sort-column" data-key="todoName">TODO名</th>
+                <th class="js-sort-column" data-key="person">担当者</th>
+                <th class="sort-header">
+                  <div class="sort-header-inner">
+                    <span>期限</span>
+                    <div class="sort-menu-container">
+                      <button type="button" class="sort-trigger">▼</button>
+                      <div class="sort-menu-curtain">
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="deadline"
+                          data-order="asc"
+                        >
+                          昇順（早い順）
+                        </button>
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="deadline"
+                          data-order="desc"
+                        >
+                          降順（遅い順）
+                        </button>
+                        <button
+                          type="button"
+                          class="js-apply-sort"
+                          data-key="id"
+                          data-order="asc"
+                        >
+                          戻す（入力順）
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="done-list" aria-busy="true"></tbody>
+          </table>
+        </section>
+      </div>
     </main>
   </body>
 </html>
