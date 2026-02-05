@@ -45,12 +45,19 @@
           <div><button type="button" id="register">登録</button></div>
         </div>
       </section>
+
       <div class="task-board">
         <section>
           <h2>TODO一覧</h2>
           <div class="filter">
             <label for="todo-filter">絞り込み</label>
-            <input type="text" id="todo-filter" placeholder="絞り込み" />
+            <input
+              type="text"
+              id="todo-filter"
+              class="js-todo-filter"
+              data-status="todo"
+              placeholder="絞り込み"
+            />
           </div>
           <table class="todo-list" aria-label="TODO一覧">
             <thead>
@@ -68,6 +75,7 @@
                           class="js-apply-sort"
                           data-key="deadline"
                           data-order="asc"
+                          data-status="todo"
                         >
                           昇順（早い順）
                         </button>
@@ -76,6 +84,7 @@
                           class="js-apply-sort"
                           data-key="deadline"
                           data-order="desc"
+                          data-status="todo"
                         >
                           降順（遅い順）
                         </button>
@@ -84,6 +93,7 @@
                           class="js-apply-sort"
                           data-key="id"
                           data-order="asc"
+                          data-status="todo"
                         >
                           戻す（入力順）
                         </button>
@@ -102,9 +112,15 @@
           <h2>DOING一覧</h2>
           <div class="filter">
             <label for="doing-filter">絞り込み</label>
-            <input type="text" id="doing-filter" placeholder="絞り込み" />
+            <input
+              type="text"
+              id="doing-filter"
+              class="js-todo-filter"
+              data-status="doing"
+              placeholder="絞り込み"
+            />
           </div>
-          <table class="todo-list" aria-label="TODO一覧">
+          <table class="todo-list" aria-label="DOING一覧">
             <thead>
               <tr>
                 <th class="js-sort-column" data-key="todoName">TODO名</th>
@@ -120,6 +136,7 @@
                           class="js-apply-sort"
                           data-key="deadline"
                           data-order="asc"
+                          data-status="doing"
                         >
                           昇順（早い順）
                         </button>
@@ -128,6 +145,7 @@
                           class="js-apply-sort"
                           data-key="deadline"
                           data-order="desc"
+                          data-status="doing"
                         >
                           降順（遅い順）
                         </button>
@@ -136,6 +154,7 @@
                           class="js-apply-sort"
                           data-key="id"
                           data-order="asc"
+                          data-status="doing"
                         >
                           戻す（入力順）
                         </button>
@@ -154,9 +173,15 @@
           <h2>DONE一覧</h2>
           <div class="filter">
             <label for="done-filter">絞り込み</label>
-            <input type="text" id="done-filter" placeholder="絞り込み" />
+            <input
+              type="text"
+              id="done-filter"
+              class="js-todo-filter"
+              data-status="done"
+              placeholder="絞り込み"
+            />
           </div>
-          <table class="todo-list" aria-label="TODO一覧">
+          <table class="todo-list" aria-label="DONE一覧">
             <thead>
               <tr>
                 <th class="js-sort-column" data-key="todoName">TODO名</th>
@@ -172,6 +197,7 @@
                           class="js-apply-sort"
                           data-key="deadline"
                           data-order="asc"
+                          data-status="done"
                         >
                           昇順（早い順）
                         </button>
@@ -180,6 +206,7 @@
                           class="js-apply-sort"
                           data-key="deadline"
                           data-order="desc"
+                          data-status="done"
                         >
                           降順（遅い順）
                         </button>
@@ -188,6 +215,7 @@
                           class="js-apply-sort"
                           data-key="id"
                           data-order="asc"
+                          data-status="done"
                         >
                           戻す（入力順）
                         </button>
