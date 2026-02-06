@@ -28,3 +28,99 @@
 .filter {
   margin: 10px 0;
 }
+
+.task-board {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.remove-button {
+  font-size: 10px;
+}
+
+/* ソートメニューのスタイル */
+.sort-header {
+  /* th 自体はテーブルのセルのままにする（これでズレが直ります！） */
+  padding: 8px; // 他の th と同じ余白に設定してください
+  vertical-align: middle;
+
+  .sort-header-inner {
+    /* ここで横並びのルールを決めます */
+    display: flex;
+    justify-content: center; /* 文字とボタンを両端に */
+    align-items: center; /* 上下の真ん中に揃える */
+    width: 100%;
+    gap: 5px; /* 少し隙間を空ける */
+  }
+}
+
+.sort-menu-curtain {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  min-width: 120px;
+
+  // is-open クラスがついた時（&は親のクラス名を指します）
+  &.is-open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // メニュー内のボタン
+  button {
+    padding: 8px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+
+    // ホバーした時
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+.todo-menu-container {
+  position: relative; // メニューの基準点にする
+  display: inline-block;
+
+  .menu-curtain {
+    display: none; // 最初は隠す
+    position: absolute;
+    top: 100%; // ボタンの真下に配置
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 120px; // メニューが狭すぎないように
+
+    // is-openクラスがついたら表示
+    &.is-open {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .menu-item {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left; // 左寄せに統一
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    // 削除ボタンだけ赤くしたい場合などの拡張も楽です
+    &--delete {
+      color: red;
+    }
+  }
+}
